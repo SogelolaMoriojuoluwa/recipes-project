@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
+// import { Helmet } from "react-helmet"
+
+import Rating from "../component/Rating"
+
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([])
   const [buttonText, setButton] = useState({})
 
   useEffect(() =>{
-    fetch("https://dummyjson.com/recipes")
+    fetch("https://dummyjson.com/recipes?limit=0&skip=0")
   .then((response) => response.json())
   .then((result) => {
     console.log(result)
@@ -24,8 +28,14 @@ function RecipeList() {
 
   return (
     <>
+      {/* <Helmet>
+      <meta charSet="utf-8" />
+                <title>Recipes</title>
+                <link rel="canonical" href="https://recipes-project-rho.vercel.app/" />
+      </Helmet> */}
     <section className="">
     <div className="container p-3">
+      <h4>Find different recipes and their ingredients</h4>
       <div className="row gy-4">
       
         {recipes.map((recipe) => (
@@ -37,7 +47,12 @@ function RecipeList() {
           <h6>Name: {recipe.name}</h6>
           <p>Meal Time: {recipe.mealType}</p>
          
-          <p>Cuisine: {recipe.cuisine}  <span className="float-end">{recipe.rating}</span></p>
+          <div className="d-flex justify-content-between align-items-center">
+            <span>Cuisine: {recipe.cuisine}</span>
+            <Rating rating={recipe.rating} />
+            <h4>{recipe.rating}</h4>
+          </div>
+          
           
           <button className="btn btn-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseExample${recipe.id}`} aria-expanded= {buttonText[recipe.id] || false} aria-controls={`#collapseExample${recipe.id}`} onClick={() => handleButton(recipe.id)}
           >

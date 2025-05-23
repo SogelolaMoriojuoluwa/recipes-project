@@ -1,0 +1,12 @@
+.carousel-item{
+    height: 70vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); 
+    /* z-index: -1; */
+}
+.carousel-item .img{
+    position: relative;
+    z-index: -1;
+    height: 100%;
+    object-fit: cover;
+   
+}

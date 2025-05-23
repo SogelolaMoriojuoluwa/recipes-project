@@ -1,11 +1,19 @@
+
 import RecipeList from "./component/RecipeList"
+import NavBar from "./component/NavBar"
+import Header from "./component/Header"
 
 function App() {
 
 
   return (
     <>
-     <RecipeList />
+    <NavBar/>
+    <Header />
+   
+    <RecipeList />
+   
+     
     </>
   )
 }
