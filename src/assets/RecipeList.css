@@ -1,0 +1,26 @@
+.card-img-top{
+    position: relative;
+}
+.cuisine{
+    position: absolute;
+    top: 0px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    /* z-index: 2; */
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(49, 49, 49, 0.2);
+    color: white;
+}
+.difficulty{
+    position: absolute;
+    top: 48%;
+    font-size: 12px;
+    right: 0;
+    padding: 3px 8px;
+    background-color: #EAEAEA;
+}

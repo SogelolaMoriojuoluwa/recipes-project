@@ -31,6 +31,8 @@ function Header () {
                 className="d-block w-100 img"
                 alt={recipe.name}
               />
+            
+         
             </div>
           ))}
      

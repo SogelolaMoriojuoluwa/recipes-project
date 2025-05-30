@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 // import { Helmet } from "react-helmet"
-
 import Rating from "../component/Rating"
+import '../assets/RecipeList.css'
+
+
 
 
 function RecipeList() {
@@ -36,25 +38,39 @@ function RecipeList() {
     <section className="">
     <div className="container p-3">
       <h4>Find different recipes and their ingredients</h4>
+      
+        <div className="d-flex justify-content-end gap-3 mb-3 ">
+          {/* <h4>Difficulty</h4> */}
+         <button className="btn btn-primary">All</button>
+        <button className="btn btn-secondary">Easy</button>
+        <button className="btn btn-secondary">Medium</button>
+       
+        </div>
+      
       <div className="row gy-4">
       
         {recipes.map((recipe) => (
          <div key={recipe.id} className="col col-lg-4 col-md-6 col-sm-12">
           <div className="card shadow">
-          <img src={recipe.image} alt="Recipe image" className="card-img-top"  style={{ height: "200px", objectFit: "cover" }}/>
+            <div>
+              <img src={recipe.image} alt="Recipe image" className="card-img-top recipe-image"  style={{ height: "200px", objectFit: "cover" }}/>
+              <p className="cuisine">Cuisine: {recipe.cuisine}</p>
+              <p className="difficulty"> {recipe.difficulty}</p>
+            </div>
+              
 
           <div className="card-body">
           <h6>Name: {recipe.name}</h6>
-          <p>Meal Time: {recipe.mealType}</p>
-         
+          <p>Meal Time: {recipe.mealType}</p>           
+  
           <div className="d-flex justify-content-between align-items-center">
-            <span>Cuisine: {recipe.cuisine}</span>
+           <span>Ratings:</span>
             <Rating rating={recipe.rating} />
-            <h4>{recipe.rating}</h4>
           </div>
           
-          
-          <button className="btn btn-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseExample${recipe.id}`} aria-expanded= {buttonText[recipe.id] || false} aria-controls={`#collapseExample${recipe.id}`} onClick={() => handleButton(recipe.id)}
+         
+
+          <button className="btn btn-secondary mt-2" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseExample${recipe.id}`} aria-expanded= {buttonText[recipe.id] || false} aria-controls={`#collapseExample${recipe.id}`} onClick={() => handleButton(recipe.id)}
           >
           {buttonText[recipe.id] ? "Hide ingredients" : "Show ingredients"}
             </button>
