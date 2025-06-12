@@ -2,6 +2,7 @@
 import RecipeList from "./component/RecipeList"
 import NavBar from "./component/NavBar"
 import Header from "./component/Header"
+import Footer from "./component/Footer"
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     <Header />
    
     <RecipeList />
-   
+    <Footer />
      
     </>
   )

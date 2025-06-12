@@ -1,6 +1,6 @@
 .carousel-item{
-    height: 70vh;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)); 
+    height: 100vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)); 
     /* z-index: -1; */
 }
 .carousel-item .img{
@@ -9,4 +9,31 @@
     height: 100%;
     object-fit: cover;
    
+}
+.carousel-caption{
+   position: absolute;
+   bottom: 20%;
+   left: 30%;
+    
+}
+.slide-text{
+    font-family: "Savate", sans-serif;
+    width: 450px;
+    font-size: 45px;
+    /* nt-family: "Oswald", sans-serif; */
+}
+.slide-sub{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+     width: 500px;
+}
+.arrow{
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    /* z-index: 2; */
+    margin-top: 50px;
+    color: black;
+    
+
 }

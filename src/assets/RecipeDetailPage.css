@@ -1,0 +1,57 @@
+.recipe-detail{
+    background-color: #EAEAEA;
+}
+.recipe-header{
+    margin-top: 220px;
+}
+.recipe-name{
+    font-size: 60px;
+    font-family: "Oswald", sans-serif;
+
+}
+.span-name{
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+}
+
+.img-detail>img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    /* border-radius: 10px; */
+}
+.table-content{
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    border-top: 7px solid grey;
+    /* background-color: orange; */
+}
+.title-name{
+    font-family: "Oswald", sans-serif;
+    font-size: 19px;
+}
+.title-main{
+     font-family: "Oswald", sans-serif;
+}
+.title-value{
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+.list{
+    list-style-type: circle;
+}
+.button{
+     font-family: "Roboto", sans-serif;
+     font-size: 16px;
+}
+.load{
+    font-family: "Roboto", sans-serif;
+     font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    .recipe-header{
+    margin-top: 10px;
+}
+    
+}
