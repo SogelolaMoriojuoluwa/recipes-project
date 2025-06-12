@@ -64,9 +64,9 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
     <div className="container p-3">
       <h4 className="heading">Discover Simple, Delicious and the Best Recipes</h4>
       
-       <div className="d-flex justify-content-between flex-lg-row flex-sm-column">
+       <div className="row ">
 
-          <div className=" mb-3">
+         <div className=" mb-3 col-lg-6 col-md-12">
             <input className="form-control me-2 search"id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -75,7 +75,8 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
             
           </div>
 
-          <div className="d-flex gap-3 mb-3 justify-content-sm-end">
+          <div className="col-lg-6 col-md-12">
+            <div className="d-flex gap-3 mb-3 justify-content-sm-end">
             <div> 
               <p  className="mb-0 mt-2 dif">Difficulty</p>
             </div>
@@ -103,6 +104,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
     
           </div>
           
+          </div>
         </div>
       
         <div className="row gy-4 ">

@@ -21,7 +21,7 @@ const slideSub = [
     "Indulge your sweet tooth with desserts that are as dreamy as they are delicious.",
   "Enjoy everyday eating different dishes with family.",
   "Who says easy can't be elegant? Discover recipes that are stunning on the plate and simple in the kitchen.",
-  "Whether you're craving comfort or adventure, we’ve got something delicious in store."
+  "Whether you're craving comfort or adventure, we've got something delicious in store."
   
   
 
@@ -38,7 +38,8 @@ const slideSub = [
 
     return(
         <>
-        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel"  data-bs-interval="10000">
+        
+          <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel"  >
   <div className="carousel-inner">
     {/* <i class="bi bi-arrow-down"></i> */}
       
@@ -80,6 +81,7 @@ const slideSub = [
     <span className="visually-hidden">Next</span>
   </button>
 </div>
+       
         
         
         </>

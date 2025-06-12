@@ -6,13 +6,7 @@ import { Link } from "react-router-dom"
     <>
     <footer className="bg-dark ">
     <div className="container py-4 text-white d-flex justify-content-between">
-      <div>
-        <h4>
-          <Link to='/' className="text-decoration-none text-white">
-          Emmy's Recipe
-          </Link>
-          </h4>
-      </div>
+      
       <div className="d-flex gap-4">
          <p>
           <Link className="text-decoration-none text-white" to= '/'>

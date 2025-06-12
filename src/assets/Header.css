@@ -13,19 +13,19 @@
 .carousel-caption{
    position: absolute;
    bottom: 20%;
-   left: 30%;
+   left: 35%;
     
 }
 .slide-text{
     font-family: "Savate", sans-serif;
-    width: 450px;
+    max-width: 450px;
     font-size: 45px;
     /* nt-family: "Oswald", sans-serif; */
 }
 .slide-sub{
     font-family: "Roboto", sans-serif;
     font-size: 20px;
-     width: 500px;
+     max-width: 500px;
 }
 .arrow{
     position: absolute;
