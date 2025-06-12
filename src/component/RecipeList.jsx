@@ -64,10 +64,10 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
     <div className="container p-3">
       <h4 className="heading">Discover Simple, Delicious and the Best Recipes</h4>
       
-       <div className="d-flex flex-lg-row flex-sm-column justify-content-lg-between">
+       <div className="d-flex justify-content-between flex-lg-row flex-sm-column">
 
-          <div className="d-flex mb-3">
-            <input className="form-control me-2 search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
+          <div className=" mb-3">
+            <input className="form-control me-2 search"id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
             setCurrentPage(1); 
