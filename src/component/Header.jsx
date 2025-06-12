@@ -11,7 +11,7 @@ function Header () {
     "Deliciously Easy Recipes",
      "Explore Your Taste Bud With Different Recipes",
     "Food Taste Better When Eaten With Family",
-  "Feel New Experience With Simple and Easy Food You Make",
+  "Craving Something Light Yet Satisfying",
   "Embark on a global culinary adventure with Ease"
    
   ];
@@ -20,7 +20,7 @@ const slideSub = [
   "Discover recipes that are stunning on the plate and simple in the kitchen.",
     "Indulge your sweet tooth with desserts that are as dreamy as they are delicious.",
   "Enjoy everyday eating different dishes with family.",
-  "Who says easy can't be elegant? Discover recipes that are stunning on the plate and simple in the kitchen.",
+  "Dive into our collection of garden-fresh recipes bursting with seasonal goodness.",
   "Whether you're craving comfort or adventure, we've got something delicious in store."
   
   

@@ -18,14 +18,16 @@
 }
 .slide-text{
     font-family: "Savate", sans-serif;
-    max-width: 450px;
+    width: 450px;
     font-size: 45px;
+    /* padding: 20px; */
     /* nt-family: "Oswald", sans-serif; */
 }
 .slide-sub{
     font-family: "Roboto", sans-serif;
     font-size: 20px;
-     max-width: 500px;
+     width: 500px;
+     /* padding: 10px; */
 }
 .arrow{
     position: absolute;
@@ -34,6 +36,19 @@
     /* z-index: 2; */
     margin-top: 50px;
     color: black;
-    
+}
+@media screen and (max-width:768px) {
+    .slide-text{
+        width: 450px;
+        font-size: 35px;
 
+    }
+    .slide-sub{
+         width: 400px;
+        font-size: 20px;
+    }
+    .carousel-caption{
+         bottom: 30%;
+        left: 23%;
+    }
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import '../assets/RecipeDetailPage.css'
 import Footer from '../component/Footer';
 import Rating from "../component/Rating"
+import AOS from 'aos';
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -10,6 +11,11 @@ function RecipeDetail() {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
+     AOS.init({
+        duration: 1200, 
+        once: true,     
+        
+      });
     fetch(`https://dummyjson.com/recipes/${id}`)
       .then(res => res.json())
       .then(data => setRecipe(data));
@@ -27,9 +33,9 @@ function RecipeDetail() {
         </div>
      <div className='row'>
         <div className='col-lg-4 col-md-12'>
-          <div className='recipe-header mb-3'>
+          <div className='recipe-header mb-3' data-aos="fade-right" data-aos-easing="ease-in-out"  data-aos-delay="1200">
             <div >
-                <h4 className='recipe-name'>{recipe.name}</h4>
+                <h4 className='recipe-name' >{recipe.name}</h4>
               <div className='d-flex gap-2 '>  
                    <span className='span-name'>
                       Rating:  
@@ -41,7 +47,7 @@ function RecipeDetail() {
           
         </div>
      
-        <div className='img-detail col-lg-8 col-md-12'>
+        <div className='img-detail col-lg-8 col-md-12' data-aos="fade-left" data-aos-easing="ease-in-out"  data-aos-delay="1200">
           <img src={recipe.image} alt={recipe.name} />
         </div>
 
