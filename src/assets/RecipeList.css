@@ -20,6 +20,7 @@
 .search{
     font-family: "Roboto", sans-serif;
     font-size: 14px;
+    width: 200px;
 }
 .search:focus{
 box-shadow: none;

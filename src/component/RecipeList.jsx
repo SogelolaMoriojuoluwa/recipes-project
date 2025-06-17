@@ -63,11 +63,11 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
       </Helmet> */}
     <section className="recipe-list" >
     <div className="container p-3">
-      <h4 className="heading">{text}</h4>
+      <h4 className="heading mt-4 mb-3">{text}</h4>
       
-       <div className="row ">
+       <div className="row">
 
-         <div className=" mb-3 col-lg-6 col-md-12">
+         <div className="col-lg-6 col-md-12 mb-2">
             <input className="form-control me-2 search"id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
