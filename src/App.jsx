@@ -10,9 +10,8 @@ function App() {
   return (
     <>
     <NavBar/>
-    <Header />
-   
-    <RecipeList />
+    <Header/>
+    <RecipeList text="Discover Simple, Delicious and the Best Recipes"  />
     <Footer />
      
     </>

@@ -1,5 +1,6 @@
 import { NavLink, Link} from "react-router-dom";
 import { useState } from "react";
+import '../assets/NavBar.css'
 
 
 function NavBar() {
@@ -14,7 +15,7 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container">
             <Link className="navbar-brand" to="/">
-            <p>Emmy's recipe</p>
+            <p className="nav-head">Emmy's Recipe</p>
              </Link>
             
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +34,7 @@ function NavBar() {
                              Home
                         </NavLink>
                     </li>
-                    <li className="nav-items">
+                    <li className="nav-item">
                      <NavLink
                         className={
                             active === "About" ? "nav-link active" : "nav-link"

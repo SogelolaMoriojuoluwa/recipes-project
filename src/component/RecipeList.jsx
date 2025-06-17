@@ -3,14 +3,15 @@ import { useEffect, useState } from "react"
 import Rating from "../component/Rating"
 import '../assets/RecipeList.css'
 import { useNavigate } from 'react-router-dom';
-import 'animate.css';
+
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
 
 
-function RecipeList() {
+function RecipeList ({text}) {
   const [recipes, setRecipes] = useState([]);
   const [buttonText, setButton] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -60,9 +61,9 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
                 <title>Recipes</title>
                 <link rel="canonical" href="https://recipes-project-rho.vercel.app/" />
       </Helmet> */}
-    <section className="recipe-list">
+    <section className="recipe-list" >
     <div className="container p-3">
-      <h4 className="heading">Discover Simple, Delicious and the Best Recipes</h4>
+      <h4 className="heading">{text}</h4>
       
        <div className="row ">
 
@@ -198,4 +199,4 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
 }
 
 
-export default RecipeList
+export default RecipeList;

@@ -1,0 +1,27 @@
+.pop-up{
+    position: fixed;
+    min-height: 100%;
+   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+     background-color: rgba(0, 0, 0, 0.4);
+   overflow: hidden;
+}
+.pop-content{
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    padding: 20px;
+    width: 400px;
+    height: 120px;
+    color: white;
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    border-radius: 10px;
+}
+.cancel-btn {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  cursor: pointer;
+}
