@@ -113,7 +113,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
       {paginatedRecipes.length === 0 ? (
     <div className="text-center mt-4 text-danger">
       <div className="notfound-img d-flex justify-content-center mt-4">
-        <img src="src\assets\undraw_page-eaten_b2rt.svg" alt="" width={230}  height={170}/>
+        <img src="src/assets/undraw_page-eaten_b2rt.svg" alt="" width={230}  height={170}/>
       </div>
       <h4 className="error-message">No recipes found for your search.</h4>
     </div>
