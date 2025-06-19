@@ -11,14 +11,15 @@
 }
 .carousel-caption{
    position: absolute;
-   bottom: 20%;
-   left: 35%;
+   bottom: 30%;
+   left: 34%;
     
 }
 .slide-text{
     font-family: "Savate", sans-serif;
-    max-width: 450px;
+    max-width: 549px;
     font-size: 45px;
+    /* left: 34%; */
 }
 .slide-sub{
     font-family: "Roboto", sans-serif;
@@ -27,7 +28,7 @@
 }
 .arrow{
     position: absolute;
-    bottom: 10px;
+    bottom: 50px;
     left: 53%;
     color: white;
    

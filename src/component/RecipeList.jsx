@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 
 
 
-function RecipeList ({text}) {
+function RecipeList () {
   const [recipes, setRecipes] = useState([]);
   const [buttonText, setButton] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,12 +63,12 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
       </Helmet> */}
     <section className="recipe-list" >
     <div className="container p-3">
-      <h4 className="heading mt-4 mb-3">{text}</h4>
+      <h4 className="heading mt-5 mb-3 pt-4">Discover Simple, Delicious and the Best Recipes</h4>
       
        <div className="row">
 
          <div className="col-lg-6 col-md-12 mb-2">
-            <input className="form-control me-2 search"id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
+            <input className="form-control me-2 search" id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
             setCurrentPage(1); 
@@ -79,24 +79,24 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
           <div className="col-lg-6 col-md-12">
             <div className="d-flex gap-3 mb-3 justify-content-sm-end">
             <div> 
-              <p  className="mb-0 mt-2 dif">Difficulty</p>
+              <p  className="mb-0 mt-1 dif">Difficulty</p>
             </div>
               <button
-                  className={`filter-button btn ${difficultyFilter === '' ? 'btn-primary' : 'btn-secondary'}`}
+                  className={`filter-button btn ${difficultyFilter === '' ? 'btn-warning' : 'btn-secondary'}`}
                   onClick={() => setDifficultyFilter('')}
                 >
                   All
                 </button>
 
                 <button
-                  className={`filter-button btn ${difficultyFilter === 'Easy' ? 'btn-primary' : 'btn-secondary'}`}
+                  className={`filter-button btn ${difficultyFilter === 'Easy' ? 'btn-warning' : 'btn-secondary'}`}
                   onClick={() => setDifficultyFilter('Easy')}
                 >
                   Easy
                 </button>
 
                 <button
-                  className={`filter-button btn ${difficultyFilter === 'Medium' ? 'btn-primary' : 'btn-secondary'}`}
+                  className={`filter-button btn ${difficultyFilter === 'Medium' ? 'btn-warning' : 'btn-secondary'}`}
                   onClick={() => setDifficultyFilter('Medium')}
                 >
                   Medium
@@ -176,6 +176,11 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
         )))}
       </div>  
       <div className="mt-3 d-flex justify-content-center">
+        <i className="bi bi-chevron-double-left btn btn-outline-warning me-2 filter-button"
+        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+        />
+
            {Array.from({ length: totalPages }, (_, index) => (
           <button className="btn btn-outline-secondary me-2 filter-button"
             key={index}
@@ -184,7 +189,15 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
           >
             {index + 1}
           </button>
+
         ))}
+
+          <i class="bi bi-chevron-double-right btn btn-outline-warning me-2 filter-button"
+           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          />
+             
+          
       </div>
       
         

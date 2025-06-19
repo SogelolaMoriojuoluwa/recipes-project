@@ -3,6 +3,7 @@ import RecipeList from "./component/RecipeList"
 import NavBar from "./component/NavBar"
 import Header from "./component/Header"
 import Footer from "./component/Footer"
+import { Element } from 'react-scroll'
 
 function App() {
 
@@ -11,7 +12,10 @@ function App() {
     <>
     <NavBar/>
     <Header/>
-    <RecipeList text="Discover Simple, Delicious and the Best Recipes"  />
+    <Element name="Recipe">
+     <RecipeList />
+    </Element>
+   
     <Footer />
      
     </>
