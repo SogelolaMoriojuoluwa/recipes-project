@@ -68,6 +68,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
        <div className="row">
 
          <div className="col-lg-6 col-md-12 mb-2">
+          {/* Search Input */}
             <input className="form-control me-2 search" id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -77,6 +78,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
           </div>
 
           <div className="col-lg-6 col-md-12">
+            {/* Filtered Button */}
             <div className="d-flex gap-3 mb-3 justify-content-sm-end">
             <div> 
               <p  className="mb-0 mt-1 dif">Difficulty</p>
@@ -109,16 +111,16 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
         </div>
       
         <div className="row gy-4 ">
-      
+      {/* Error Message */}
       {paginatedRecipes.length === 0 ? (
     <div className="text-center mt-4 text-danger">
       <div className="notfound-img d-flex justify-content-center mt-4">
-        <img src="src/assets/undraw_page-eaten_b2rt.svg" alt="" width={230}  height={170}/>
+        <img src="src/assets/errorImage.svg" alt="" width={230}  height={170}/>
       </div>
       <h4 className="error-message">No recipes found for your search.</h4>
     </div>
   ) : (
-        
+        // pagination
         paginatedRecipes.map((recipe, index) => (
          <div key={recipe.id} className="col col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-easing="ease-in-out"
     data-aos-delay={index * 100}>
@@ -134,7 +136,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
               
               
               
-
+           {/* Display Recipe Card */}
           <div className="card-body">
           <h6 className="card-title"> Name:<span className="card-value"> {recipe.name}</span></h6>
           <p className="card-title">Meal Time: <span className="card-value">{recipe.mealType}</span> </p>           
@@ -175,6 +177,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
      
         )))}
       </div>  
+      {/* pagination button */}
       <div className="mt-3 d-flex justify-content-center">
         <i className="bi bi-chevron-double-left btn btn-outline-warning me-2 filter-button"
         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
