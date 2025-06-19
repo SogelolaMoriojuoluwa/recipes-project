@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Rating from "../component/Rating"
 import '../assets/RecipeList.css'
 import { useNavigate } from 'react-router-dom';
+import ErrorImage from '../assets/image/errorimage.svg'
 
 
 import AOS from 'aos';
@@ -115,7 +116,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
       {paginatedRecipes.length === 0 ? (
     <div className="text-center mt-4 text-danger">
       <div className="notfound-img d-flex justify-content-center mt-4">
-        <img src="src/assets/errorImage.svg" alt="" width={230}  height={170}/>
+        <img src= {ErrorImage} alt="" width={230}  height={170}/>
       </div>
       <h4 className="error-message">No recipes found for your search.</h4>
     </div>
