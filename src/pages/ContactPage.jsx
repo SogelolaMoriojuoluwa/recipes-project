@@ -4,6 +4,7 @@ import ApplicationPopup from '../component/ApplicationPopup'
 import '../assets/ContactPage.css'
 import NavBar from '../component/NavBar'
 import Footer from '../component/Footer'
+import ContactFood from '../assets/image/contactfood.jpg'
 
 const nameValue = /^[A-Za-z\s]+$/
 const textValue = /^[A-Za-z\s]+$/
@@ -30,13 +31,16 @@ function ContactPage() {
   return (
    <>
    <NavBar />
+   <div className='contact-food'>
+    <img src={ContactFood} alt="" />
+   </div>
    <section className='form-backgrond'>
-    <div className='container d-flex justify-content-center align-items-center form-body py-5 mt-5'>
+    <div className='container d-flex justify-content-center form-body py-5'>
     <form className='form-content'
     onSubmit={handleSubmit(onSubit)}
     autoComplete='off'
     >
-      <h3>Contact us</h3>
+      <h3 className='contact'>Contact us</h3>
       <p>Contact us for any further inquiries, complain or intrest</p>
        <div className=''>
        <label htmlFor="fullname" className='form-label'>Full Name</label>    
@@ -138,7 +142,7 @@ function ContactPage() {
 
        </div>
     </div>
-    <button className='btn btn-secondary' type='submit'>Submit</button>
+    <button className='btn btn-secondary d-grid col-12 mx-auto' type='submit'>Submit</button>
     </form>
    </div>
  

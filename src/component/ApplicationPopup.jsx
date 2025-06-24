@@ -9,7 +9,7 @@ import '../assets/ApplicationPopup.css'
              <p>Thanks for contacting us</p>
             <p>Your request will be reviewed in the next 24 hours</p>
              <i
-            class="bi bi-x-lg cancel-btn "
+            className="bi bi-x-lg cancel-btn "
             onClick={() => setShowPopup(false)}
           ></i>
            </div>

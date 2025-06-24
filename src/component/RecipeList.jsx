@@ -8,6 +8,7 @@ import ErrorImage from '../assets/image/errorimage.svg'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import PaginatedList from "./PaginatedList";
 
 
 
@@ -17,10 +18,9 @@ function RecipeList () {
   const [buttonText, setButton] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [difficultyFilter, setDifficultyFilter] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const navigate = useNavigate();
-  
+  const [isLoading, setIsLoading] = useState(true)
+  const [pageNumber, setPageNumber] = useState([]);
 
 
   useEffect(() =>{
@@ -29,22 +29,37 @@ function RecipeList () {
     once: true,     
     
   });
-    fetch('https://dummyjson.com/recipes?limit=50')
+  
+  try{
+    setIsLoading(true)
+     fetch('https://dummyjson.com/recipes?limit=50')
   .then((response) => response.json())
   .then((result) => {
-    console.log(result)
+    // console.log(result)
     const filtered = result.recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchQuery.toLowerCase())&&
         (difficultyFilter ? recipe.difficulty === difficultyFilter : true)
       );
     setRecipes(filtered)
-    setTotalPages(Math.ceil(filtered.length / limit));
-    setCurrentPage(1);
+    
   })
+  }
+  catch(error){
+    setIsLoading(false)
+  }finally{
+    setIsLoading(false)
+  }
+   
     
   }, [searchQuery, difficultyFilter])
 
-
+  
+  const handlePage = (data) => {
+    // Only update if data is different to prevent infinite loop
+    if (JSON.stringify(pageNumber) !== JSON.stringify(data)) {
+      setPageNumber(data);
+    }
+  }
   
   const handleButton = (id) =>{
       setButton((prevText) => ({
@@ -53,8 +68,7 @@ function RecipeList () {
       }))
   }
   
-const limit = 10;
-const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * limit);
+
   return (
     <>
       {/* <Helmet>
@@ -65,7 +79,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
     <section className="recipe-list" >
     <div className="container p-3">
       <h4 className="heading mt-5 mb-3 pt-4">Discover Simple, Delicious and the Best Recipes</h4>
-      
+         
        <div className="row">
 
          <div className="col-lg-6 col-md-12 mb-2">
@@ -73,7 +87,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
             <input className="form-control me-2 search" id="search" type="search" placeholder="Search" aria-label="Search" value={searchQuery}
            onChange={(e) => {
             setSearchQuery(e.target.value);
-            setCurrentPage(1); 
+            // setCurrentPage(1); 
   }}/>
             
           </div>
@@ -110,10 +124,16 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
           
           </div>
         </div>
+      {
+        isLoading && ( <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span></div>)
+      }
+        
       
+    
         <div className="row gy-4 ">
       {/* Error Message */}
-      {paginatedRecipes.length === 0 ? (
+      {searchQuery && pageNumber.length === 0 ? (
     <div className="text-center mt-4 text-danger">
       <div className="notfound-img d-flex justify-content-center mt-4">
         <img src= {ErrorImage} alt="" width={230}  height={170}/>
@@ -122,7 +142,7 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
     </div>
   ) : (
         // pagination
-        paginatedRecipes.map((recipe, index) => (
+       pageNumber.map((recipe, index) => (
          <div key={recipe.id} className="col col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-easing="ease-in-out"
     data-aos-delay={index * 100}>
           <div className="card shadow ">
@@ -177,32 +197,9 @@ const paginatedRecipes = recipes.slice((currentPage - 1) * limit, currentPage * 
        
      
         )))}
-      </div>  
-      {/* pagination button */}
-      <div className="mt-3 d-flex justify-content-center">
-        <i className="bi bi-chevron-double-left btn btn-outline-warning me-2 filter-button"
-        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-        />
-
-           {Array.from({ length: totalPages }, (_, index) => (
-          <button className="btn btn-outline-secondary me-2 filter-button"
-            key={index}
-            onClick={() => setCurrentPage(index + 1)}
-            disabled={currentPage === index + 1}
-          >
-            {index + 1}
-          </button>
-
-        ))}
-
-          <i class="bi bi-chevron-double-right btn btn-outline-warning me-2 filter-button"
-           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-          />
-             
-          
-      </div>
+      </div>       
+      
+                <PaginatedList dataRecipe={recipes} itemPerPage={10} handlePage={handlePage}/>
       
         
 

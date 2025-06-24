@@ -9,13 +9,13 @@ import '../assets/Footer.css'
 
       <div className=" d-flex gap-3 justify-content-center">
           <a href="https://www.linkedin.com/in/moriojuoluwa-grace-sogelola-34a887329/" className="text-white" target="_blank">
-          <i class="bi bi-linkedin"></i>
+          <i className="bi bi-linkedin"></i>
         </a>
           <a href="https://github.com/SogelolaMoriojuoluwa" className="text-white" target="_blank">
-          <i class="bi bi-github"></i>
+          <i className="bi bi-github"></i>
         </a>
             <a href="https://x.com/Emm_jay388" className="text-white" target="_blank"> 
-            <i class="bi bi-twitter"></i>
+            <i className="bi bi-twitter"></i>
           </a>  
        
       </div>

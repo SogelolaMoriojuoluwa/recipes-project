@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-item {
+  margin: 0 4px;
+}
+
+.page-link {
+  color: grey;
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.page-link:focus {
+  outline: gray;
+  box-shadow: none;
+  color: grey;
+  
+}
+
+
+.page-link:hover {
+  background: #f0f0f0;
+  color: grey;
+}
+
+.active .page-link {
+  background: grey;
+  color: #fff;
+  border-color : grey;
+  box-shadow: none;
+}
