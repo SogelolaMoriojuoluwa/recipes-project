@@ -24,13 +24,13 @@ function PaginatedList ({ dataRecipe, itemPerPage, handlePage }) {
    <>
    <ReactPaginate
    breakLabel="..."
-   nextLabel="next >"
+   nextLabel=" >"
    onPageChange={handlePageClick}
    pageRangeDisplayed={3}
    marginPagesDisplayed={2}
    breakAriaLabels={"break page"}
    pageCount={pageCount}
-   previousLabel= "< previous"
+   previousLabel= "<"
    renderOnZeroPageCount={null}
    pageClassName="page-item"
    pageLinkClassName="page-link"

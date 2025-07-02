@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import ApplicationPopup from '../component/ApplicationPopup'
 import '../assets/ContactPage.css'
 import NavBar from '../component/NavBar'
 import Footer from '../component/Footer'
 import ContactFood from '../assets/image/contactfood.jpg'
+import emailjs from '@emailjs/browser';
 
 const nameValue = /^[A-Za-z\s]+$/
 const textValue = /^[A-Za-z\s]+$/
@@ -14,7 +15,7 @@ const emailValue = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 
 function ContactPage() {
  const [showPopup, setShowPopup] = useState(false)
-
+  const form = useRef()
  const{
   register,
   handleSubmit,
@@ -22,8 +23,24 @@ function ContactPage() {
   formState: {errors},
  } = useForm();
 
+
+ const sendEmail = () => {
+  emailjs.sendForm('service_v58twu4','template_9a3h1js', form.current, {
+    publicKey: 'BWnsXNRekXz5Ag7zU'
+  })
+  .then(
+    () => {
+      console.log('Message was successfully sent')
+    },
+    (error) => {
+      console.log('Falied', error.text)
+    }
+  )
+ }
+
  const onSubit = (data) => {
   setShowPopup(true)
+  sendEmail();
   reset();
   return data;
  }
@@ -36,7 +53,8 @@ function ContactPage() {
    </div>
    <section className='form-backgrond'>
     <div className='container d-flex justify-content-center form-body py-5'>
-    <form className='form-content'
+    <form className='form-content' 
+    ref={form}
     onSubmit={handleSubmit(onSubit)}
     autoComplete='off'
     >
@@ -44,7 +62,7 @@ function ContactPage() {
       <p>Contact us for any further inquiries, complain or intrest</p>
        <div className=''>
        <label htmlFor="fullname" className='form-label'>Full Name</label>    
-       <input type="text" className='form-control form-input'  id='fullname'
+       <input type="text" className='form-control form-input' name='fullname' id='fullname'
        {...register("fullname",{
         required: "Input Fullname",
         minLength: {
@@ -72,7 +90,7 @@ function ContactPage() {
 
       <div className="">
          <label htmlFor="emailName" className='form-label'>Email Address</label>    
-       <input type="email" className='form-control form-input'  id='emailName'
+       <input type="email" className='form-control form-input' name='emailName'  id='emailName'
        {...register("emailName",{
         required: "Input Email Address",
         pattern: {
@@ -94,7 +112,7 @@ function ContactPage() {
 
         <div className=''>
        <label htmlFor="textMessage" className='form-label'>Reason for contact </label>    
-       <input type="text" className='form-control form-input'  id='textMessage'
+       <input type="text" className='form-control form-input' name='textMessage'  id='textMessage'
        {...register("textMessage",{
         required: "Input Reason for contact",
         minLength: {
@@ -119,7 +137,7 @@ function ContactPage() {
     </div>
     <div className=''>
        <label htmlFor="messageName" className='form-label'>Message</label>  
-      <textarea id="messageName" className='form-control form-input' rows='3' 
+      <textarea id="messageName" className='form-control form-input' name='messageName' rows='3' 
       {...register("messageName",{
         required: "Input Message",
         maxLength: {

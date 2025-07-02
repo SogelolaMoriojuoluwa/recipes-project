@@ -7,7 +7,7 @@ import '../assets/ApplicationPopup.css'
         <div className='pop-content text-center bg-secondary'>
            <div>
              <p>Thanks for contacting us</p>
-            <p>Your request will be reviewed in the next 24 hours</p>
+            <p>You will recieve a message in your gmail shortly</p>
              <i
             className="bi bi-x-lg cancel-btn "
             onClick={() => setShowPopup(false)}
