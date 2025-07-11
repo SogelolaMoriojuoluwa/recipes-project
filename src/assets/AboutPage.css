@@ -2,3 +2,35 @@
     background-color: #EAEAEA;
      font-family: "Roboto", sans-serif;
 }
+.about-food{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    /* overflow: hidden; */
+}
+.about-food > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about-food::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    pointer-events: none;
+}
+.about-content{
+    position: absolute;
+    top: 20%;
+    box-sizing: border-box;
+    left: 47%;
+    color: white;
+    z-index: 2;
+    display: block;
+    /* text-align: center; */
+}

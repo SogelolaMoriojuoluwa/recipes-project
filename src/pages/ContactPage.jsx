@@ -7,8 +7,7 @@ import Footer from '../component/Footer'
 import ContactFood from '../assets/image/contactfood.jpg'
 import emailjs from '@emailjs/browser';
 
-const nameValue = /^[A-Za-z\s]+$/
-const textValue = /^[A-Za-z\s]+$/
+const nameValue = /^[A-Za-z\s]+$/ 
 const messageValue = /^[A-Za-z\s]+$/
 const emailValue = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -48,11 +47,14 @@ function ContactPage() {
   return (
    <>
    <NavBar />
-   <div className='contact-food'>
+   
+   <section className='form-backgrond py-5'>
+
+    <div className='contact-food'>
     <img src={ContactFood} alt="" />
    </div>
-   <section className='form-backgrond'>
-    <div className='container d-flex justify-content-center form-body py-5'>
+  
+    <div className='container d-flex justify-content-center flex-lg-row flex-sm-column gap-3 form-body mt-3'>
     <form className='form-content' 
     ref={form}
     onSubmit={handleSubmit(onSubit)}
@@ -111,21 +113,18 @@ function ContactPage() {
       </div>
 
         <div className=''>
-       <label htmlFor="textMessage" className='form-label'>Reason for contact </label>    
-       <input type="text" className='form-control form-input' name='textMessage'  id='textMessage'
-       {...register("textMessage",{
-        required: "Input Reason for contact",
-        minLength: {
-          value: 10,
-          message: "Name must be at least 4 characters long"
-        },
-        pattern: {
-          value: textValue,
-          message: "Text can only contain letters and spaces",
-        },
-
+       <label htmlFor="textMessage" className='form-label'>Reason for contact </label> 
+       <select className='form-select' name="textMessage" id="textMessage"
+        {...register("textMessage",{
+        required: "Select an option",
        })}
-       />
+       >
+        <option value="">-----Select Reason-----</option>
+        <option value="one">-Missing Ingredients or Substitutions</option>
+        <option value="two">-Confusing Instructions</option>
+        <option value="three">-No Way to Adjust Serving Sizes</option>
+        <option value="four">-Lack of Visual Guidance</option>
+        </select>   
        <div className='errors-span mb-2 mt-1'>
         {errors.textMessage && (
          <span className="text-danger">
@@ -137,7 +136,7 @@ function ContactPage() {
     </div>
     <div className=''>
        <label htmlFor="messageName" className='form-label'>Message</label>  
-      <textarea id="messageName" className='form-control form-input' name='messageName' rows='3' 
+      <textarea id="messageName" className='form-control form-input' name='messageName' rows='5' 
       {...register("messageName",{
         required: "Input Message",
         maxLength: {
@@ -162,8 +161,14 @@ function ContactPage() {
     </div>
     <button className='btn btn-secondary d-grid col-12 mx-auto' type='submit'>Submit</button>
     </form>
+
+
+    <div className='d-flex align-items-end'>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63347.81207772513!2d3.332565456479016!3d7.098360547772819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1752077117242!5m2!1sen!2sng" width="350" height="270" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   </div>      
    </div>
- 
+   
+        
    </section>
      {showPopup && (
     <ApplicationPopup setShowPopup= {setShowPopup} />

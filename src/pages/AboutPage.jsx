@@ -1,14 +1,20 @@
 import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 import '../assets/AboutPage.css'
+import AboutFood from '../assets/image/aboutfood.jpg'
+
 
  function AboutPage() {
   return (
     <>
     <NavBar />
-    <section className="about">
-         <div className='container p-5 mt-5 '>
-      <h4>About Us</h4>
+    <section className="about py-5">
+      <div className="about-food">
+        <img src={AboutFood} alt="" />
+        {/* <div className="about-food-overlay"></div> */}
+      </div>
+         <div className='container mt-5'>
+      <h4 className="about-content">About Us</h4>
       <p>
       Welcome to Emmy's Recipe, your ultimate destination for delicious, easy-to-follow recipes that bring joy to every kitchen.
     </p>
